@@ -1,0 +1,21 @@
+---
+- name: Install npm packages
+  npm: name={{item}} global=yes
+  with_items:
+    - ember-cli
+    - bower
+
+- name: Add node source
+  shell: curl -sL https://deb.nodesource.com/setup | bash - creates=/usr/bin/nodejs
+  sudo: True
+
+- name: Install required apt packages
+  apt: name=phantomjs state=present
+  sudo: True
+  with_items:
+    - phantomjs
+    - nodejs
+
+- name: "Link `nodejs` -> `node`: https://github.com/joyent/node/issues/3911#issuecomment-8956154"
+  file: src=/usr/bin/nodejs dest=/usr/bin/node state=link
+  sudo: True

@@ -1,0 +1,10 @@
+---
+- name: Install NPM
+  apt: name=npm state=present
+  sudo: True
+
+- name: Set NPM config
+  copy: src=npmrc dest={{home_dir}}/.npmrc
+
+- name: Set NPM bin in path config
+  copy: src=zshrc dest={{home_dir}}/.zsh.after/npm.zsh

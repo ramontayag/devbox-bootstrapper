@@ -1,0 +1,11 @@
+---
+- hosts: all
+  remote_user: "{{username}}"
+
+  roles:
+    - apt
+    - locale
+    - zsh
+    - linuxbrew
+    - direnv
+    - rvm

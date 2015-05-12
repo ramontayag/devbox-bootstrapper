@@ -1,0 +1,7 @@
+---
+- hosts: all
+  remote_user: "{{username}}"
+
+  roles:
+    - npm
+    - ember

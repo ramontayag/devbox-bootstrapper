@@ -1,0 +1,4 @@
+.vagrant
+box.yml
+mnt/*
+development
