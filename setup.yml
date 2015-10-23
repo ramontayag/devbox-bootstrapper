@@ -5,7 +5,8 @@
   roles:
     - apt
     - locale
+    - mosh
     - zsh
-    - linuxbrew
-    - direnv
     - rvm
+    - dotfiles
+    - direnv

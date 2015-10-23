@@ -1,0 +1,4 @@
+---
+- name: Instal mosh
+  apt: name=mosh state=present
+  sudo: True

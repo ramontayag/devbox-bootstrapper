@@ -1,0 +1,12 @@
+---
+- name: create user
+  user: name={{username}} generate_ssh_key=yes password="{{dev_password}}"
+  sudo: True
+
+- name: configure sudoers
+  template: src=sudoer.j2 dest=/etc/sudoers.d/{{username}} owner=0 group=0 mode=0440
+  sudo: True
+
+- name: Set up authorized_keys for the deploy user
+  authorized_key: user={{username}} key="{{lookup('file', '~/.ssh/id_rsa.pub')}}"
+  sudo: True

@@ -35,6 +35,14 @@ All of the playbooks below are run like this:
 ansible-playbook <playbook-name>.yml -i development
 ```
 
+### If on DigitalOcean
+
+You need to bootstrap it first
+
+```
+ansible-playbook digitalocean_bootstrap.yml -i digitalocean
+```
+
 ### Setup
 
 This should always be run.
