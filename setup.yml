@@ -4,6 +4,7 @@
 
   roles:
     - apt
+    - common
     - locale
     - mosh
     - rvm
