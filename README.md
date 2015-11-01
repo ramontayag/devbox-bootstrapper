@@ -1,4 +1,4 @@
-Generic dev box
+Ansible dev box
 
 ## Preparation
 
@@ -25,19 +25,11 @@ Copy `development.sample` to `development`:
 cp development{.sample,}
 ```
 
-Then edit the file to point to the IP of the virtual machine.
+Then edit the file to point to the IP of the server.
 
 ## Running Playbooks
 
 All of the playbooks below are run like this:
-
-```
-ansible-playbook <playbook-name>.yml -i development
-```
-
-### If on DigitalOcean
-
-You need to bootstrap it first
 
 ```
 ansible-playbook digitalocean_bootstrap.yml -i digitalocean

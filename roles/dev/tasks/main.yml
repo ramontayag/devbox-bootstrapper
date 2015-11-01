@@ -1,6 +1,6 @@
 ---
 - name: create user
-  user: name={{username}} generate_ssh_key=yes password="{{dev_password}}"
+  user: name={{username}} generate_ssh_key=yes
   sudo: True
 
 - name: configure sudoers

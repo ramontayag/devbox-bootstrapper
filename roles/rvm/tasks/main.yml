@@ -1,4 +1,11 @@
 ---
+- name: Instal required packages
+  apt: name={{item}} state=present
+  with_items:
+    - ruby
+    - curl
+  sudo: True
+
 - name: Add RVM keys
   shell: gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 

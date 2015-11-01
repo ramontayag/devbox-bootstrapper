@@ -6,7 +6,6 @@
     - apt
     - locale
     - mosh
-    - zsh
     - rvm
-    - dotfiles
     - direnv
+    - postgresql
