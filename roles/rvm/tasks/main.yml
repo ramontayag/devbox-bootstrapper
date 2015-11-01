@@ -4,6 +4,9 @@
   with_items:
     - ruby
     - curl
+    - libcurl3
+    - libcurl3-gnutls
+    - libcurl4-openssl-dev
   sudo: True
 
 - name: Add RVM keys
