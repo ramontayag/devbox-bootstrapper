@@ -8,7 +8,7 @@ Copy the config:
 cp box.yml{.sample,}
 ```
 
-Edit the box.yml to pick your own settings for the virtual machine.
+Edit the `box.yml` to pick your own settings for the virtual machine. `vagrant up` to start the VM.
 
 ```
 ssh-add /path/to/your/private_key
