@@ -4,4 +4,5 @@
   with_items:
     - vim
     - ctags
+    - git
   sudo: True
