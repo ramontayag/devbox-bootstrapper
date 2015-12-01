@@ -4,6 +4,7 @@
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
 
+require 'yaml'
 CONFIG = YAML.load_file(File.expand_path("../box.yml", __FILE__))
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
