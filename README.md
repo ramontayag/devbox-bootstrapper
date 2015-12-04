@@ -19,20 +19,20 @@ ssh-copy-id -i /path/to/your/public_key.pub vagrant@ip.of.vagrant.box
 
 ## Hosts file
 
-Copy `development.sample` to `development`:
+Copy `hosts.sample` to `hosts`:
 
 ```
-cp development{.sample,}
+cp hosts{.sample,}
 ```
 
-Then edit the file to point to the IP of the virtual machine.
+Then edit the file to point to the IP of the virtual machine. Later, when running the playbooks, we will specify what group to use.
 
 ## Running Playbooks
 
 All of the playbooks below are run like this:
 
 ```
-ansible-playbook <playbook-name>.yml -i development
+ansible-playbook <playbook-name>.yml -i hosts -l <virtualbox or digitalocean>
 ```
 
 ### Setup
