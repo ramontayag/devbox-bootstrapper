@@ -3,3 +3,6 @@ home_dir: "/home/{{username}}"
 rvm_dir: "{{home_dir}}/.rvm"
 rvm: "{{rvm_dir}}/bin/rvm"
 npm_bin: "{{home_dir}}/.linuxbrew/bin/npm"
+postgresql_databases:
+postgresql_password:
+  - ODUASUCJHSUDAHS

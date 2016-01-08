@@ -1,0 +1,8 @@
+---
+- name: Instal required packages
+  apt: name={{item}} state=present
+  with_items:
+    - vim
+    - ctags
+    - git
+  sudo: True

@@ -2,3 +2,5 @@
 box.yml
 mnt/*
 development
+digitalocean
+group_vars/development

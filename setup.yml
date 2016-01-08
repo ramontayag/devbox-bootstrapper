@@ -4,8 +4,10 @@
 
   roles:
     - apt
+    - common
     - locale
+    - mosh
     - zsh
-    - linuxbrew
-    - direnv
     - rvm
+    - direnv
+    - postgresql
