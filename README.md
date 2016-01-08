@@ -27,16 +27,6 @@ cp development{.sample,}
 
 Then edit the file to point to the IP of the virtual machine.
 
-## PostgreSQL databases
-
-Let ansible create the databases for you by listing it in `group_vars/development`, like so:
-
-```
-postgresql_databases:
-  - app_testdb
-  - app_devdb
-```
-
 ## Running Playbooks
 
 All of the playbooks below are run like this:
@@ -50,6 +40,20 @@ ansible-playbook <playbook-name>.yml -i development
 This should always be run.
 
 Playbook name: `setup`
+
+### PostgreSQL
+
+Playbook name: `postgresql`
+
+Make sure your `group_vars/development` the following settings:
+
+```
+postgresql_password:
+  - XXXXXXXXXX
+postgresql_databases:
+  - app_testdb
+  - app_devdb
+```
 
 ### Ember
 
