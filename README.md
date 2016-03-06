@@ -58,3 +58,20 @@ postgresql_databases:
 ### Ember
 
 Playbook name: `ember`
+
+### Ruby
+
+Playbook name: `ruby`. This installs RVM.
+
+### PostgreSQL
+
+Playbook name: `postgresql`
+
+Requires the following to be set in the group vars:
+
+```
+postgresql_databases:
+  - an_app_database
+postgresql_password:
+  - SOMEPASSWORD
+```
