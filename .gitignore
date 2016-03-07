@@ -1,6 +1,5 @@
 .vagrant
 box.yml
 mnt/*
-development
-digitalocean
+hosts
 group_vars/development

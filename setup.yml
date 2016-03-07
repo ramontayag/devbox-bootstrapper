@@ -8,5 +8,4 @@
     - locale
     - mosh
     - zsh
-    - rvm
     - direnv
