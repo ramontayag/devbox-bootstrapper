@@ -3,3 +3,7 @@
 
 [digitalocean]
 192.168.33.22 username=dev
+
+[development:children]
+virtualbox
+digitalocean
