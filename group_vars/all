@@ -6,5 +6,7 @@ npm_bin: "{{home_dir}}/.linuxbrew/bin/npm"
 postgresql_databases:
   - abna_development
   - abna_test
+  - bloomtrade_development
+  - bloomtrade_test
 postgresql_password:
   - ODUASUCJHSUDAHS
