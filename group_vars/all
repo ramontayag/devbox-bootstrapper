@@ -8,5 +8,4 @@ postgresql_databases:
   - abna_test
   - bloomtrade_development
   - bloomtrade_test
-postgresql_password:
-  - ODUASUCJHSUDAHS
+postgresql_password: ODUASUCJHSUDAHS
