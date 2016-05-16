@@ -1,7 +1,7 @@
 ---
 - name: Install NPM
   apt: name=npm state=present
-  sudo: True
+  become: True
 
 - name: Set NPM config
   copy: src=npmrc dest={{home_dir}}/.npmrc

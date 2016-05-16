@@ -1,8 +1,8 @@
 ---
 - name: install language packs
   apt: name=language-pack-en-base state=present
-  sudo: True
+  become: True
 
 - name: set locale to {{locale}}
   command: /usr/sbin/update-locale LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
-  sudo: True
+  become: True

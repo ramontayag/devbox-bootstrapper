@@ -1,7 +1,7 @@
 ---
 - name: install required apt packages
   apt: name={{item}} state=present
-  sudo: True
+  become: True
   with_items:
     - tmux
     - zsh
@@ -22,7 +22,7 @@
   # ansible. In this case, we want it to always be false, as we are just
   # retrieving information.
   changed_when: False
-  sudo: no
+  become: no
 
 # - name: set EXTENDED_GLOB
 #   shell: setopt EXTENDED_GLOB
@@ -33,7 +33,7 @@
 # one.
 - name: make zsh default
   user: name={{username}} shell=/bin/zsh
-  sudo: True
+  become: True
   # shell:  chsh -s /bin/zsh 
   # This task will run only when the following is true. In here, we check the
   # value registered previously within the "default_shell" variable.
