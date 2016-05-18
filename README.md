@@ -72,6 +72,6 @@ Requires the following to be set in the group vars:
 ```
 postgresql_databases:
   - an_app_database
-postgresql_password:
-  - SOMEPASSWORD
+  - another_app_database
+postgresql_password: SOMEPASSWORD
 ```
