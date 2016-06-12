@@ -3,3 +3,4 @@ box.yml
 mnt/*
 hosts
 group_vars/development
+*.log

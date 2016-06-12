@@ -1,13 +1,6 @@
 ---
-- name: Install required apt packages
-  apt: name=golang state=present
-  become: True
-
-- name: Clone direnv
-  git: repo=https://github.com/zimbatm/direnv dest="{{home_dir}}/src/direnv"
-
 - name: Install direnv
-  shell: make install chdir={{home_dir}}/src/direnv creates=/usr/local/bin/direnv
+  apt: name=direnv state=present
   become: True
 
 - name: Add direnv hook
