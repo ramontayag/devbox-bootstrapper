@@ -26,6 +26,12 @@ ssh-copy-id -i /path/to/your/public_key.pub ubuntu@ip.of.vagrant.box
 
 If you still can't run the playbooks below, `vagrant ssh` and edit the `~/.ssh/authorized_keys`. I've seen instances where your public key was not properly appended. You can fix it manually.
 
+Install the guest additions plugin in the host:
+
+```
+vagrant plugin install vagrant-vbguest
+```
+
 ## Hosts file
 
 Copy `hosts.sample` to `hosts`:
