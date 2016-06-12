@@ -1,5 +1,5 @@
 [virtualbox]
-192.168.33.21 username=vagrant
+192.168.33.21 username=ubuntu
 
 [digitalocean]
 192.168.33.22 username=dev
