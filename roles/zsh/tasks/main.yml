@@ -8,13 +8,8 @@
     - git
 
 - name: clone prezto
-  shell: git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto" creates="{{home_dir}}/.zprezto"
+  git: repo=https://github.com/sorin-ionescu/prezto.git recursive=yes dest="{{home_dir}}/.zprezto"
 
-# - name: install prezto
-#   shell: "{{home_dir}}/install_prezto.sh creates={{home_dir}}/.zshrc"
-# 
-# - name: change to zsh
-#   shell: zsh
 - name: zsh facts
   shell: 'echo $SHELL'
   register: default_shell
@@ -24,23 +19,11 @@
   changed_when: False
   become: no
 
-# - name: set EXTENDED_GLOB
-#   shell: setopt EXTENDED_GLOB
-
-# - name: make default shell zsh
-#   shell: chsh -s /bin/zsh
-# Now, we want to set zsh as the default shell, unless it is already the default
-# one.
 - name: make zsh default
   user: name={{username}} shell=/bin/zsh
   become: True
-  # shell:  chsh -s /bin/zsh 
-  # This task will run only when the following is true. In here, we check the
-  # value registered previously within the "default_shell" variable.
-  # when: default_shell.stdout.find('/bin/zsh') == -1
 
 - name: copy zsh files
-  # shell: /bin/zsh -c 'setopt EXTENDED_GLOB && for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"' done creates={{home_dir}}/.zshrc
   shell: ln -s {{home_dir}}/.zprezto/runcoms/{{item}} {{home_dir}}/.{{item}} creates={{home_dir}}/.{{item}}
   with_items:
     - zlogin
@@ -53,14 +36,11 @@
 - name: copy tmux config
   copy: "src=tmux.conf dest={{home_dir}}/.tmux.conf"
 
-- name: copy fasd
-  copy: "src=clvv-fasd-1.0.1-0-g4822024.tar.gz dest={{home_dir}}/fasd-1.0.1.tar.gz"
-
 - name: extract fasd
-  shell: "tar -zxf {{home_dir}}/fasd-1.0.1.tar.gz creates={{home_dir}}/clvv-fasd-4822024"
+  unarchive: src="clvv-fasd-1.0.1-0-g4822024.tar.gz" dest="{{home_dir}}"
 
-- name: rename fasd home
-  shell: "mv {{home_dir}}/clvv-fasd-4822024 {{home_dir}}/fasd creates={{home_dir}}/fasd"
+- name: symlink fasd dir
+  file: src="{{fasd_dest_dir}}" dest="fasd" state=link
 
 - name: copy zshrc
   copy: src=zshrc dest={{home_dir}}/.zshrc

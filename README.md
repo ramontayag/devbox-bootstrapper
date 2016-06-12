@@ -10,12 +10,21 @@ cp box.yml{.sample,}
 
 Edit the `box.yml` to pick your own settings for the virtual machine. `vagrant up` to start the VM.
 
+Change ubuntu's password:
+
 ```
-ssh-add /path/to/your/private_key
-ssh-copy-id -i /path/to/your/public_key.pub vagrant@ip.of.vagrant.box
+vagrant ssh
+sudo passwd ubuntu
 ```
 
-`vagrant` user's password is `vagrant`.
+Use the password `ubuntu`, then `exit`.
+
+```
+ssh-add /path/to/your/private_key
+ssh-copy-id -i /path/to/your/public_key.pub ubuntu@ip.of.vagrant.box
+```
+
+If you still can't run the playbooks below, `vagrant ssh` and edit the `~/.ssh/authorized_keys`. I've seen instances where your public key was not properly appended. You can fix it manually.
 
 ## Hosts file
 
@@ -33,6 +42,14 @@ All of the playbooks below are run like this:
 
 ```
 ansible-playbook <playbook-name>.yml -i hosts -l <virtualbox or digitalocean>
+```
+
+## Bootstrap the box for ansible
+
+```
+vagrant ssh
+sudo apt-get update
+sudo apt-get install ansible
 ```
 
 ### Setup

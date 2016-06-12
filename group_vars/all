@@ -3,6 +3,7 @@ home_dir: "/home/{{username}}"
 rvm_dir: "{{home_dir}}/.rvm"
 rvm: "{{rvm_dir}}/bin/rvm"
 npm_bin: "{{home_dir}}/.linuxbrew/bin/npm"
+fasd_dest_dir: "{{home_dir}}/clvv-fasd-4822024"
 postgresql_databases:
   - abna_development
   - abna_test
