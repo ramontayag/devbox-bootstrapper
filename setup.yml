@@ -5,7 +5,6 @@
   roles:
     - apt
     - common
-    - locale
     - mosh
     - zsh
     - direnv
