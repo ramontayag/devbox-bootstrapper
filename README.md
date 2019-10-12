@@ -2,16 +2,6 @@ Ubuntu 19.10 devbox setup
 
 ## Preparation
 
-Copy the config:
-
-```
-cp box.yml{.sample,}
-```
-
-The section on running playbooks below assumes you can already connect to your machine remotely.
-
-## Hosts file
-
 Copy `hosts.sample` to `hosts`:
 
 ```
