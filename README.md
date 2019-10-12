@@ -1,4 +1,4 @@
-Ubuntu 19.10 devbox setup
+Ubuntu 19.04 devbox setup
 
 ## Preparation
 
