@@ -1,0 +1,42 @@
+---
+- name: Add Docker key
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+  become: True
+
+- name: Uninstall old versions
+  apt:
+    name:
+      - docker
+      - docker-engine
+      - docker.io
+      - containerd
+      - runc
+    state: absent
+  become: True
+
+- apt_repository:
+    repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu disco stable
+    state: present
+  become: True
+
+- name: Update apt cache
+  apt: update_cache=yes
+  become: True
+
+- name: Install required packages
+  apt:
+    name:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+    state: present
+  become: True
+
+- name: Add the user to the docker group, so we can run as non-root
+  user:
+    name: "{{username}}"
+    groups: docker
+    append: yes
+  become: True

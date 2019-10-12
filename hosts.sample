@@ -1,9 +1,2 @@
-[virtualbox]
-192.168.33.21 username=vagrant
-
-[digitalocean]
-192.168.33.22 username=dev
-
-[development:children]
-virtualbox
-digitalocean
+[devboxes]
+ramon-devbox

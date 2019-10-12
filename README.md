@@ -1,4 +1,4 @@
-Generic dev box
+Ubuntu 19.10 devbox setup
 
 ## Preparation
 

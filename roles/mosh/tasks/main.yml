@@ -1,4 +1,4 @@
 ---
-- name: Instal mosh
+- name: Install mosh
   apt: name=mosh state=present
   become: True

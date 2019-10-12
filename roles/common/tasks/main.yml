@@ -1,8 +1,9 @@
 ---
-- name: Instal required packages
-  apt: name={{item}} state=present
-  with_items:
-    - vim
-    - ctags
-    - git
+- name: Install required packages
+  apt:
+    name:
+      - vim
+      - ctags
+      - git
+    state: present
   become: True

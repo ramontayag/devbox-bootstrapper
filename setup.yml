@@ -1,6 +1,5 @@
 ---
 - hosts: all
-  remote_user: "{{username}}"
 
   roles:
     - apt

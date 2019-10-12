@@ -1,11 +1,12 @@
 ---
 - name: install required apt packages
-  apt: name={{item}} state=present
+  apt:
+    name:
+      - tmux
+      - zsh
+      - git
+    state: present
   become: True
-  with_items:
-    - tmux
-    - zsh
-    - git
 
 - name: clone prezto
   shell: git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto" creates="{{home_dir}}/.zprezto"

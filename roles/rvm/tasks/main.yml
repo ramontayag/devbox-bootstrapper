@@ -1,21 +1,15 @@
 ---
-- name: Instal required packages
-  apt: name={{item}} state=present
-  with_items:
-    - ruby
-    - curl
-    - libcurl3
-    - libcurl3-gnutls
-    - libcurl4-openssl-dev
+- name: Install required packages
+  apt:
+    name:
+      - ruby
+      - gnupg2
+    state: present
   become: True
 
 - name: Add RVM keys
-  shell: gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+  shell: "gpg2 --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB"
+  become: True
 
 - name: install RVM
   shell: "curl -sSL https://get.rvm.io | bash -s stable creates={{rvm_dir}}"
-
-- name: install Rubies
-  shell: "{{rvm}} install {{item}} creates={{rvm_dir}}/rubies/{{item}}"
-  with_items:
-    - ruby-2.2.1
