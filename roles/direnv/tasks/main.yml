@@ -1,6 +1,8 @@
 ---
 - name: Install required apt packages
-  apt: name=golang state=present
+  apt:
+    name: golang
+    state: present
   become: True
 
 - name: Cleanup direnv files in case they're there, since we are unable to clone if dest exists
@@ -10,14 +12,21 @@
   become: True
 
 - name: Clone direnv
-  git: repo=https://github.com/zimbatm/direnv dest="{{home_dir}}/src/direnv"
+  git:
+    repo: https://github.com/zimbatm/direnv
+    dest: "{{home_dir}}/src/direnv"
 
 - name: Install direnv
-  shell: make install chdir={{home_dir}}/src/direnv creates=/usr/local/bin/direnv
+  shell: make install
+  args:
+    chdir: "{{home_dir}}/src/direnv"
+    creates: /usr/local/bin/direnv
   become: True
 
 - name: Add direnv hook
-  template: src=direnv.zsh dest={{home_dir}}/.zsh.after/direnv.zsh
+  template:
+    src: direnv.zsh
+    dest: "{{home_dir}}/.zsh.after/direnv.zsh"
 
 - name: Cleanup direnv files
   file:
