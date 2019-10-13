@@ -3,6 +3,12 @@
   apt: name=golang state=present
   become: True
 
+- name: Cleanup direnv files in case they're there, since we are unable to clone if dest exists
+  file:
+    path: "{{home_dir}}/src/direnv"
+    state: absent
+  become: True
+
 - name: Clone direnv
   git: repo=https://github.com/zimbatm/direnv dest="{{home_dir}}/src/direnv"
 
