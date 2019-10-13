@@ -1,0 +1,27 @@
+#!/usr/bin/env ruby
+
+THRESHOLD_IN_SECONDS = 30 * 60 # 30 minutes
+
+pts_activity_command = %Q(who -s | awk '{ print $2 }' | (cd /dev && xargs stat -c '%n %U %X'))
+pts_activities = `#{pts_activity_command}`.split("\n").each_with_object([]) do |activity, arr|
+  split_activities = activity.split(" ")
+  arr << {
+    pseudo_terminal: split_activities[0],
+    user: split_activities[1],
+    last_activity_at: split_activities[2].to_i,
+  }
+end
+pts_activities.sort! do |activity|
+  activity[:last_activity_at] <=> activity[:last_activity_at]
+end
+
+last_activity_at = pts_activities.last[:last_activity_at]
+
+seconds_since_last_activity = Time.now.to_i - last_activity_at
+
+if seconds_since_last_activity > THRESHOLD_IN_SECONDS
+  puts "Will shut down since last activity was over #{THRESHOLD_IN_SECONDS} seconds ago (#{seconds_since_last_activity})"
+  system 'sudo shutdown -P +2'
+else
+  puts "Last activity was #{seconds_since_last_activity} seconds ago. Not shutting down. Need to be over #{THRESHOLD_IN_SECONDS} seconds."
+end

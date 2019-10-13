@@ -1,0 +1,24 @@
+---
+- name: Install required packages
+  apt:
+    name:
+      - ruby
+    state: present
+  become: True
+
+- name: Create scripts directory
+  file:
+    path: "{{home_dir}}/scripts"
+    state: directory
+
+- name: Install shutdown script
+  copy:
+    src: files/shutdown-if-idle
+    dest: "{{home_dir}}/scripts/"
+    mode: '0755'
+
+- name: Run shutdown-if-idle script every 5 mins
+  cron:
+    name: "shutdown-if-idle"
+    minute: "*/5"
+    job: "{{home_dir}}/scripts/shutdown-if-idle >> /var/log/syslog.log 2>&1"

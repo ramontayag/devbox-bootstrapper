@@ -35,3 +35,9 @@ Playbook name: `ruby`. This installs RVM.
 ### Docker
 
 Playbook name: `docker`
+
+### Shutdown if Idle
+
+Playbook name: `auto_shutdown`
+
+Shuts down the computer if idle for 30 seconds.
