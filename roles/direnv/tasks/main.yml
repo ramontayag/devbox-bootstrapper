@@ -12,3 +12,9 @@
 
 - name: Add direnv hook
   template: src=direnv.zsh dest={{home_dir}}/.zsh.after/direnv.zsh
+
+- name: Cleanup direnv files
+  file:
+    path: "{{home_dir}}/src/direnv"
+    state: absent
+  become: True
