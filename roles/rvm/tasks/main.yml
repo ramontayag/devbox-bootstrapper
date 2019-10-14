@@ -3,6 +3,7 @@
   apt:
     name:
       - gnupg2
+      - libcurl3-dev # to isntall curb
     state: present
   become: True
 
