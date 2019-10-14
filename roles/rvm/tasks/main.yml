@@ -3,7 +3,8 @@
   apt:
     name:
       - gnupg2
-      - libcurl3-dev # to isntall curb
+      # to install curb
+      - libcurl3-dev
       # to install pg gem
       - postgresql libpq-dev
     state: present
