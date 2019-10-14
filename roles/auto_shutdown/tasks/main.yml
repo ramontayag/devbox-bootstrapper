@@ -21,4 +21,4 @@
   cron:
     name: "shutdown-if-idle"
     minute: "*/5"
-    job: "{{home_dir}}/scripts/shutdown-if-idle >> /tmp/cron.log 2>&1"
+    job: "{{home_dir}}/scripts/shutdown-if-idle >> /dev/null 2>&1"
