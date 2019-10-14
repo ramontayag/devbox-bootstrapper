@@ -4,6 +4,8 @@
     name:
       - gnupg2
       - libcurl3-dev # to isntall curb
+      # to install pg gem
+      - postgresql libpq-dev
     state: present
   become: True
 
