@@ -6,7 +6,7 @@
       # to install curb
       - libcurl3-dev
       # to install pg gem
-      - postgresql libpq-dev
+      - libpq-dev
       # for JS runtime
       - nodejs
     state: present
