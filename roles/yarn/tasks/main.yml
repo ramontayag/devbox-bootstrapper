@@ -1,0 +1,20 @@
+---
+- name: Add an Apt signing key
+  apt_key:
+    url: https://dl.yarnpkg.com/debian/pubkey.gpg
+    state: present
+  become: True
+
+- apt_repository:
+    repo: deb https://dl.yarnpkg.com/debian/ stable main
+    state: present
+    filename: yarn.list
+  become: True
+
+- name: Install yarn
+  apt:
+    update_cache: yes
+    name:
+      - yarn
+    state: present
+  become: True
