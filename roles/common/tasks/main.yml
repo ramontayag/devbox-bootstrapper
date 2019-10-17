@@ -5,7 +5,5 @@
       - vim
       - ctags
       - git
-      # So we can run `psql`
-      - postgresql-client
     state: present
   become: True
