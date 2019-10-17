@@ -10,10 +10,7 @@ pts_activities = `#{pts_activity_command}`.split("\n").each_with_object([]) do |
     user: split_activities[1],
     last_activity_at: split_activities[2].to_i,
   }
-end
-pts_activities.sort! do |activity|
-  activity[:last_activity_at] <=> activity[:last_activity_at]
-end
+end.sort_by { |activity| activity[:last_activity_at] }
 
 last_activity_at = pts_activities.last[:last_activity_at]
 
