@@ -30,6 +30,10 @@ Playbook name: `google-chrome-stable`
 
 Installs google-chrome-stable for headless tests
 
+### Node
+
+Playbook name: `node`
+
 ### Ember
 
 Playbook name: `ember`
