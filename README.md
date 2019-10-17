@@ -24,6 +24,12 @@ This should always be run.
 
 Playbook name: `setup`
 
+### Google Chrome
+
+Playbook name: `google-chrome-stable`
+
+Installs google-chrome-stable for headless tests
+
 ### Ember
 
 Playbook name: `ember`
