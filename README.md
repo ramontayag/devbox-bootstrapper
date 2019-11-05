@@ -50,4 +50,4 @@ Playbook name: `docker`
 
 Playbook name: `auto_shutdown`
 
-Shuts down the computer if idle for 30 seconds.
+Shuts down the computer if idle for 30 minutes.
