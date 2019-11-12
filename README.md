@@ -18,6 +18,10 @@ All of the playbooks below are run like this:
 ansible-playbook <playbook-name>.yml -i hosts
 ```
 
+### All
+
+You can run all the playbooks (except Ember at the moment) by using the playbook `all.yml`.
+
 ### Setup
 
 This should always be run.

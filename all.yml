@@ -1,0 +1,7 @@
+---
+- import_playbook: setup.yml
+- import_playbook: google-chrome-stable.yml
+- import_playbook: node.yml
+- import_playbook: ruby.yml
+- import_playbook: docker.yml
+- import_playbook: auto_shutdown.yml
