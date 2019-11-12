@@ -1,2 +1,2 @@
 [devboxes]
-ramon-devbox
+ramon-devbox ansible_ssh_user=CHANGEME ansible_ssh_private_key_file=CHANGEME

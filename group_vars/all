@@ -1,5 +1,4 @@
 ---
-ansible_ssh_user: ramon
 username: "{{ansible_ssh_user}}"
 home_dir: "/home/{{username}}"
 rvm_dir: "{{home_dir}}/.rvm"
