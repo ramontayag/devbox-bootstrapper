@@ -18,6 +18,8 @@ All of the playbooks below are run like this:
 ansible-playbook <playbook-name>.yml -i hosts
 ```
 
+Note: if you're using oslogin with 2FA in Google, there's no way around things but to temporarily disable it on your machine. Set metadata `enable-oslogin-2fa` on your machine to `FALSE`. You may delete it after running this.
+
 ### All
 
 You can run all the playbooks (except Ember at the moment) by using the playbook `all.yml`.
