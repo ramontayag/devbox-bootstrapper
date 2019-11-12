@@ -28,9 +28,9 @@
 # - name: set EXTENDED_GLOB
 #   shell: setopt EXTENDED_GLOB
 
-- name: make zsh default
-  user: name={{username}} shell=/bin/zsh
-  become: True
+# - name: make zsh default
+#   user: name={{username}} shell=/bin/zsh
+#   become: True
 
 - name: copy zsh files
   # shell: /bin/zsh -c 'setopt EXTENDED_GLOB && for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"' done creates={{home_dir}}/.zshrc
