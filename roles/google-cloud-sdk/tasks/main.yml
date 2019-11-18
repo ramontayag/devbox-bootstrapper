@@ -1,0 +1,32 @@
+---
+- name: Download installer
+  get_url:
+    url: https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-{{google_cloud_sdk_version}}-linux-x86_64.tar.gz
+    dest: /tmp/google-cloud-sdk-{{google_cloud_sdk_version}}-linux-x86_64.tar.gz
+
+- name: Create directory
+  file:
+    path: ~/local
+    state: directory
+
+- name: Extract installer
+  unarchive:
+    src: /tmp/google-cloud-sdk-{{google_cloud_sdk_version}}-linux-x86_64.tar.gz
+    dest: ~/local
+    remote_src: yes
+
+- name: Install Google Cloud SDK
+  shell: ~/local/google-cloud-sdk/install.sh -q
+
+# https://cloud.google.com/sdk/docs/downloads-versioned-archives
+# for non-interactive installs:
+- name: Add zsh hooks
+  file:
+    src: ~/local/google-cloud-sdk/{{item.src}}
+    dest: ~/.zsh.after/{{item.dest}}
+    state: link
+  loop:
+    - src: path.zsh.inc
+      dest: path.zsh
+    - src: completion.zsh.inc
+      dest: completion.zsh

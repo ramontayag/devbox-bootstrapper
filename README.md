@@ -57,3 +57,9 @@ Playbook name: `docker`
 Playbook name: `auto_shutdown`
 
 Shuts down the computer if idle for 30 minutes.
+
+### Google Cloud SDK
+
+Playbook name: `google-cloud-sdk`
+
+Install Google Cloud SDK even through Ubuntu already has it. Reason: having a non-package-manager managed installation gives you free stuff, like being able to install kubectl via `gcloud components install kubectl` and have it work out-of-the-box.

@@ -5,3 +5,4 @@
 - import_playbook: ruby.yml
 - import_playbook: docker.yml
 - import_playbook: auto_shutdown.yml
+- import_playbook: google-cloud-sdk.yml
