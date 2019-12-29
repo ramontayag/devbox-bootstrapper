@@ -5,6 +5,7 @@
       - tmux
       - zsh
       - git
+      - go-md2man
     state: present
   become: True
 
