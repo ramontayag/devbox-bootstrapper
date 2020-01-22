@@ -63,3 +63,10 @@ Shuts down the computer if idle for 30 minutes.
 Playbook name: `google-cloud-sdk`
 
 Install Google Cloud SDK even through Ubuntu already has it. Reason: having a installation *not* managed by a package manager gives you free stuff, like being able to install kubectl via `gcloud components install kubectl` and have it work out-of-the-box.
+
+### Watchman
+
+Playbook name: `watchman`
+
+watch files and execute events
+https://facebook.github.io/watchman/

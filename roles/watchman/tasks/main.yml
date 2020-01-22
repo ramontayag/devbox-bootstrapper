@@ -1,0 +1,6 @@
+---
+- name: Install watchman
+  get_url:
+    url: https://github.com/facebook/watchman/suites/411469782/artifacts/1244202
+    dest: /usr/local/bin/watchman
+    mode: '755'
