@@ -1,5 +1,11 @@
+- name: Create bin directory if it does not exist
+  file:
+    path: "{{home_dir}}/local/bin"
+    state: directory
+    mode: '0755'
+
 - name: copy script
   copy:
     src: toreman
-    dest: "{{home_dir}}/local/toreman"
+    dest: "{{home_dir}}/local/bin/toreman"
     mode: u+rwx

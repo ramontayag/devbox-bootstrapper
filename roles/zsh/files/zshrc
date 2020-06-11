@@ -30,6 +30,9 @@ bindkey "^R" history-incremental-search-backward
 PATH=$PATH:$HOME/fasd
 eval "$(fasd --init auto)"
 
+# Other bin files
+PATH=$PATH:$HOME/local/bin
+
 # For Xvfb and Jasmine
 export DISPLAY=:0
 
