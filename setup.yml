@@ -7,5 +7,6 @@
     - locale
     - mosh
     - zsh
+    - tmux
     - direnv
     - imagemagick

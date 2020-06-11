@@ -2,7 +2,6 @@
 - name: install required apt packages
   apt:
     name:
-      - tmux
       - zsh
       - git
       - go-md2man
@@ -43,9 +42,6 @@
     - zprofile
     - zshenv
     - zshrc
-
-- name: copy tmux config
-  copy: "src=tmux.conf dest={{home_dir}}/.tmux.conf"
 
 - name: copy fasd
   copy: "src=clvv-fasd-1.0.1-0-g4822024.tar.gz dest={{home_dir}}/fasd-1.0.1.tar.gz"

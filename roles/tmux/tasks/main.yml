@@ -1,0 +1,15 @@
+---
+- name: install required apt packages
+  apt:
+    name:
+      - tmux
+    state: present
+  become: True
+
+- name: copy tmux config
+  copy: "src=tmux.conf dest={{home_dir}}/.tmux.conf"
+
+- name: Copy tmux plugin manager
+  git:
+    repo: https://github.com/tmux-plugins/tpm
+    dest: ~/.tmux/plugins/tpm
