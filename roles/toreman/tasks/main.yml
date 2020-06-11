@@ -1,5 +1,5 @@
 - name: copy script
   copy:
     src: toreman
-    dest: {{home_dir}}/local/bin/toreman
+    dest: "{{home_dir}}/local/toreman"
     mode: u+rwx
