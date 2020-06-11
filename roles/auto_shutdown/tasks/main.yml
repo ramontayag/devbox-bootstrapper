@@ -3,6 +3,7 @@
   apt:
     name:
       - ruby
+      - cron
     state: present
   become: True
 
