@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+
+"${PROCFILE:-Procfile}"
+
+grep --invert-match '^#' < $PROCFILE |
+  sed -e 's/^[^:]*: //' |
+  xargs -I {} \
+    tmux \
+      split-window -v \; \
+      send-keys '[ -s .env ] && source .env; {}' 'C-m' &&
+  tmux \
+    select-pane -t 1 \; \
+    send-keys 'C-d' \; \
+    select-layout ${1:-tiled}
