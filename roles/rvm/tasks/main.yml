@@ -17,3 +17,4 @@
 
 - name: install RVM
   shell: "curl -sSL https://get.rvm.io | bash -s stable creates={{rvm_dir}}"
+  warn: false
