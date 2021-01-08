@@ -3,7 +3,7 @@
   apt:
     name:
       - vim
-      - ctags
+      - universal-ctags
       - git
     state: present
   become: True
