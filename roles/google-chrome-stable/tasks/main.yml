@@ -15,9 +15,6 @@
   apt:
     update_cache: yes
     name:
-      - vim
-      - ctags
-      - git
       - google-chrome-stable
     state: present
   become: True
