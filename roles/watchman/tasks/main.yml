@@ -1,42 +1,14 @@
 ---
-- name: Install required packages to build
-  apt:
-    name:
-      - libssl-dev
-      - autoconf
-      - automake
-      - libtool
-      - python-dev
-    state: present
-  become: True
-
-- name: Clone
-  git:
-    repo: https://github.com/facebook/watchman.git
-    dest: "{{home_dir}}/watchman"
-    version: v4.9.0
-
-- name: Prepare for make
-  shell:
-    cmd: |
-      ./autogen.sh
-      ./configure
-    chdir: "{{home_dir}}/watchman"
-
-- name: Make
-  shell:
-    cmd: make
-    chdir: "{{home_dir}}/watchman"
-
-- name: Install
-  shell:
-    cmd: make install
-    chdir: "{{home_dir}}/watchman"
-  become: True
-
-- name: Copy executable
-  copy:
-    src: "{{home_dir}}/watchman/watchman"
-    dest: /usr/local/bin/watchman
+- unarchive:
+    src: https://github.com/facebook/watchman/releases/download/v2021.01.04.00/watchman-v2021.01.04.00-linux.zip
+    dest: "{{home_dir}}/watchman/"
     remote_src: yes
+
+- name: Setup binaries
+  shell: |
+    mkdir -p /usr/local/{bin,lib} /usr/local/var/run/watchman
+    cp bin/* /usr/local/bin
+    cp lib/* /usr/local/lib
+    chmod 755 /usr/local/bin/watchman
+    chmod 2777 /usr/local/var/run/watchman
   become: True
