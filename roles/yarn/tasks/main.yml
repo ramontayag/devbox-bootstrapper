@@ -8,7 +8,7 @@
 - apt_repository:
     repo: deb https://dl.yarnpkg.com/debian/ stable main
     state: present
-    filename: yarn.list
+    filename: yarn
   become: True
 
 - name: Install yarn
