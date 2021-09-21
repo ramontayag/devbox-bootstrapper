@@ -1,29 +1,22 @@
 ---
-- name: Install required libraries
-  apt:
-    update_cache: yes
-    name:
-      - apt-transport-https
-      - ca-certificates
-      - gnupg
-    state: present
-  become: True
+- get_url:
+    url: https://sdk.cloud.google.com
+    dest: /tmp/gcloud-install.sh
 
-- apt_repository:
-    repo: deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main
-    state: present
-    filename: google-cloud-sdk
-  become: True
+- name: Install gcloud
+  shell: |
+    bash /tmp/gcloud-install.sh \
+      --disable-prompts \
+      --install-dir={{home_dir}}/google-cloud-sdk
+  args:
+    creates: "{{home_dir}}/google-cloud-sdk"
 
-- apt_key:
-    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
-    state: present
-  become: True
+- name: Create zsh hook directory
+  file:
+    path: "{{home_dir}}/.zsh.after/google-cloud-sdk"
+    state: directory
 
-- name: Install required libraries
-  apt:
-    update_cache: yes
-    name:
-      - google-cloud-sdk
-    state: present
-  become: True
+- name: Add path hook
+  template:
+    src: path.zsh
+    dest: "{{home_dir}}/.zsh.after/google-cloud-sdk/path.zsh"
