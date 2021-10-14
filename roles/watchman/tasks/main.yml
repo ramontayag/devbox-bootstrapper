@@ -1,4 +1,10 @@
 ---
+- name: Create watchman directory
+  file:
+    path: "{{home_dir}}/watchman"
+    state: directory
+    mode: 0755
+
 - unarchive:
     src: https://github.com/facebook/watchman/releases/download/v2021.01.04.00/watchman-v2021.01.04.00-linux.zip
     dest: "{{home_dir}}/watchman/"
