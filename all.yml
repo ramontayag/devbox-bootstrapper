@@ -7,3 +7,4 @@
 - import_playbook: auto_shutdown.yml
 - import_playbook: google-cloud-sdk.yml
 - import_playbook: watchman.yml
+- import_playbook: postgresql.yml
